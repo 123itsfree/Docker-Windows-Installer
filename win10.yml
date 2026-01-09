@@ -9,13 +9,10 @@ services:
       PASSWORD: "PASSWORD"
       RAM_SIZE: "4G"
       CPU_CORES: "4"
-      DISK_SIZE: "400G"
-      DISK2_SIZE: "100G"
-    devices:
-      - /dev/kvm
-      - /dev/net/tun
-    cap_add:
-      - NET_ADMIN
+      DISK_SIZE: "100G" # Recommended: Stay under 200G total for Free Tier
+      KVM: "N"         # This tells the container to skip the KVM check
+    # devices:         <-- REMOVED
+    #   - /dev/kvm     <-- REMOVED
     ports:
       - "8006:8006"
       - "3389:3389/tcp"
